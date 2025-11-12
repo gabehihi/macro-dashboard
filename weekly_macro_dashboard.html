@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Weekly Macro Dashboard – Notion Embed</title>
+<style>
+  :root{
+    --bg:#0b0f14;--card:#0f1520;--muted:#9aa4b2;--text:#e6eef8;--accent:#4ea8ff;--line:#1b2430;--good:#6ed29f;--warn:#ffd166;--bad:#ff6b6b;
+  }
+  @media (prefers-color-scheme: light){
+    :root{--bg:#ffffff;--card:#f7f8fa;--muted:#606a76;--text:#0f1720;--accent:#2563eb;--line:#e5e7eb;--good:#16a34a;--warn:#b45309;--bad:#dc2626}
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;}
+  .wrap{max-width:960px;margin:0 auto;padding:20px 18px 40px}
+  h1{font-size:22px;margin:4px 0 10px}
+  .desc{color:var(--muted);font-size:13px;margin-bottom:16px}
+  .grid{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:820px){.grid{grid-template-columns:1fr 1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .card h2{font-size:16px;margin:0 0 10px 0}
+  .tbl{width:100%;border-collapse:collapse}
+  .tbl th,.tbl td{border-top:1px solid var(--line);padding:10px 8px;font-size:13px;vertical-align:top}
+  .tbl th{width:32%;text-align:left;color:var(--muted);font-weight:600}
+  .tbl tr:first-child th,.tbl tr:first-child td{border-top:none}
+  a{color:var(--accent);text-decoration:none}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,0.02);font-size:12px;color:var(--muted)}
+  .row{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+  .note{font-size:12px;color:var(--muted)}
+  .footer{margin-top:16px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>주간 거시경제 대시보드</h1>
+    <div class="desc">환율 · 수출 · 선행지수 · 노동 · 물가 · 금리 · 밸류에이션 · 준비자산 링크 모음 (Notion 임베드 최적화, 자동 새로고침 없이 가벼운 링크 허브)</div>
+
+    <div class="grid">
+      <section class="card">
+        <h2>1) 환율 · 달러</h2>
+        <div class="row">
+          <span class="pill">매주: 월/목</span>
+          <span class="pill">체크: DXY, USD/KRW</span>
+        </div>
+        <table class="tbl">
+          <tr><th>USD/KRW(일별)</th><td><a target="_blank" href="https://fred.stlouisfed.org/series/DEXKOUS">FRED DEXKOUS</a> / <a target="_blank" href="https://ecos.bok.or.kr">한국은행 ECOS</a></td></tr>
+          <tr><th>DXY(달러인덱스)</th><td><a target="_blank" href="https://www.marketwatch.com/investing/index/dxy">MarketWatch</a> / <a target="_blank" href="https://finance.yahoo.com/quote/DX-Y.NYB/">Yahoo Finance</a></td></tr>
+          <tr><th>PPP(구매력)</th><td><a target="_blank" href="https://data.oecd.org/conversion/purchasing-power-parities-ppp.htm">OECD PPP</a> / <a target="_blank" href="https://data.worldbank.org/indicator/PA.NUS.PPP">World Bank PPP</a></td></tr>
+        </table>
+        <div class="note">메모: PPP·실질금리차·경상수지·CDS를 함께 보며 원화 저평가 판단</div>
+      </section>
+
+      <section class="card">
+        <h2>2) 수출 · 선행지수</h2>
+        <div class="row"><span class="pill">매주: 수</span><span class="pill">체크: 일평균 수출, OECD CLI</span></div>
+        <table class="tbl">
+          <tr><th>일평균 수출</th><td><a target="_blank" href="https://www.korea.kr/news/economyList.do">기재부 경제동향</a> / <a target="_blank" href="https://unipass.customs.go.kr/clip/index.do">관세청 수출입 통계</a> / <a target="_blank" href="https://www.motie.go.kr/">산업부 보도</a></td></tr>
+          <tr><th>OECD CLI</th><td><a target="_blank" href="https://data.oecd.org/leadind/">OECD Leading indicators</a></td></tr>
+        </table>
+        <div class="note">메모: CLI 100 상/하회와 일평균 수출 YoY 동행 여부</div>
+      </section>
+
+      <section class="card">
+        <h2>3) 노동 · 물가</h2>
+        <div class="row"><span class="pill">매주: 화</span><span class="pill">체크: 실업률, CPI</span></div>
+        <table class="tbl">
+          <tr><th>실업률</th><td><a target="_blank" href="https://kosis.kr/statHtml/statHtml.do?orgId=101&tblId=DT_1DA7001S">KOSIS 고용동향</a></td></tr>
+          <tr><th>CPI</th><td><a target="_blank" href="https://kosis.kr/statHtml/statHtml.do?orgId=101&tblId=DT_1J20001">KOSIS 물가지표</a></td></tr>
+        </table>
+        <div class="note">메모: 실질임금/코어CPI 흐름으로 소비 탄력 점검</div>
+      </section>
+
+      <section class="card">
+        <h2>4) 금리 · 채권</h2>
+        <div class="row"><span class="pill">매주: 월/목</span><span class="pill">체크: 10Y-3Y 스프레드</span></div>
+        <table class="tbl">
+          <tr><th>KTB 3Y·10Y</th><td><a target="_blank" href="https://www.kofia.or.kr/">KOFIA 수익률</a> / <a target="_blank" href="https://ecos.bok.or.kr">ECOS 시계열</a></td></tr>
+          <tr><th>장단기 스프레드</th><td>직접 계산: 10Y − 3Y (경기전망 신호)</td></tr>
+          <tr><th>UST 10Y/2Y</th><td><a target="_blank" href="https://fred.stlouisfed.org/series/T10Y2Y">FRED (T10Y2Y)</a></td></tr>
+        </table>
+        <div class="note">메모: 인버전 해소→경기저점/금리저점 시그널 조합</div>
+      </section>
+
+      <section class="card">
+        <h2>5) 밸류에이션 · 주택</h2>
+        <div class="row"><span class="pill">매주: 금</span></div>
+        <table class="tbl">
+          <tr><th>버핏지수</th><td><a target="_blank" href="https://www.advisorperspectives.com/dshort/updates/buffett-valuation-indicator">AdvisorPerspectives</a></td></tr>
+          <tr><th>Case‑Shiller</th><td><a target="_blank" href="https://fred.stlouisfed.org/series/SPCS20RSA">FRED SPCS20RSA</a> / <a target="_blank" href="https://fred.stlouisfed.org/series/CSUSHPINSA">FRED National</a></td></tr>
+        </table>
+        <div class="note">메모: 밸류에이션은 산식 차이 유의, 주택가격은 NSA/SA 구분</div>
+      </section>
+
+      <section class="card">
+        <h2>6) 준비자산 · 금</h2>
+        <div class="row"><span class="pill">매월: 1회</span></div>
+        <table class="tbl">
+          <tr><th>IMF COFER</th><td><a target="_blank" href="https://data.imf.org/?sk=E6A5F467-C14B-4AA8-9F6D-5A09EC4E62A4">통화별 비중</a></td></tr>
+          <tr><th>WGC 중앙은행 금</th><td><a target="_blank" href="https://www.gold.org/goldhub/research/central-bank-statistics">월별 순매수</a> / <a target="_blank" href="https://www.gold.org/goldhub/research/gold-demand-trends">Gold Demand Trends</a></td></tr>
+        </table>
+        <div class="note">메모: 달러 비중의 점진적 변화와 금 순매수의 상관</div>
+      </section>
+    </div>
+
+    <div class="footer">업데이트 루틴 예시 — 월/목: 환율·스프레드, 화: 노동/물가, 수: 수출, 금: 밸류/주택, 월1회: COFER/WGC · ⓒ 2025 또비쌤</div>
+  </div>
+</body>
+</html>
